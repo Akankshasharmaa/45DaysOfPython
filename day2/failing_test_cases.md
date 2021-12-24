@@ -12,4 +12,6 @@ pos_neg(-5, 6, True) → False
 
 
 ## Problem 4
-Compiling Error: Indexing
+```
+string index out of range
+```
