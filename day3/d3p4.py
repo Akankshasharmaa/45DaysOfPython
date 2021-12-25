@@ -1,6 +1,6 @@
 def front_times(str, n):
     newstr = ''
-    if n > 0:
+    if n >= 0:
         if len(str) <= 3:
             return str * n
         elif len(str) > 3:
@@ -11,5 +11,5 @@ result = front_times('Chocolate', 2)
 print(result)
 result = front_times('Chocolate', 3)
 print(result)
-result = front_times('Abc', 3)
+result = front_times('', 3)
 print(result)
