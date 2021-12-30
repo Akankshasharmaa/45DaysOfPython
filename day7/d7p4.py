@@ -1,6 +1,6 @@
 def make_tags(str1, str2):
     
-    newstr = '<<' + str1 + '>>' + str2 + '<</'+ str1 + '>>'
+    newstr = '<' + str1 + '>' + str2 + '</'+ str1 + '>'
     return newstr
 
 result = make_tags('i', 'Yay')
