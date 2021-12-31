@@ -1,6 +1,6 @@
 def max_end3(arr):
     if len(arr) == 3:
-        if arr[0] > arr[2]:
+        if arr[0] >= arr[2]:
             newarr = [arr[0], arr[0], arr[0]]
             return newarr
         elif arr[2] > arr[0]:
