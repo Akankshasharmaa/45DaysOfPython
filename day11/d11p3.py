@@ -1,12 +1,13 @@
 def make_bricks(smallNum, bigNum, goal):
-    small_brick = 1 * smallNum
-    big_brick = 5 * bigNum
-    if goal % big_brick == 0:
-        return True
-    elif goal % big_brick == small_brick:
-        return True
-    else:
+    if (bigNum * 5) + smallNum < goal:
         return False
+    
+    if goal % 5 > smallNum:
+        return False
+
+    return True
+
+
 
 result = make_bricks(3, 1, 8) #true
 print(result)
