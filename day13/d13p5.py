@@ -2,7 +2,7 @@ def cat_dog(str):
     count_cat = 0
     count_dog = 0
 
-    for i in range(len(str)):
+    for i in range(len(str)-1):
         if str[i] == 'c' and str[i+1] == 'a' and str[i+2] == 't':
             count_cat += 1
 

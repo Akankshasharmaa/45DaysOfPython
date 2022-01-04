@@ -2,17 +2,26 @@ def end_other(a, b):
     str_a = a.lower()
     str_b = b.lower()
 
-    i = len(str_a)
-    j = len(str_b)
+    sub_str = ''
 
-    if i >= 3 and j >= 3:
-        if str_a[i-1] == str_b[j-1] and str_a[i-2] == str_b[j-2] and str_a[i-3] == str_b[j-3]:
+    if len(str_a) > len(str_b):
+        for i in range(len(str_a) - len(str_b) + 1):
+            sub_str = str_a[i : i + len(str_b)]
+
+        if str_b == sub_str:
+            return True
+        else:
+            return False
+    else: 
+        for i in range(len(str_b) - len(str_a) + 1):
+            sub_str = str_b[i : i + len(str_a)]
+
+        if str_a == sub_str:
             return True
         else:
             return False
 
-
-result = end_other('Hiabc', 'abc')
+result = end_other('abcab', 'ab')
 print(result)
 result = end_other('AbC', 'HiaBc')
 print(result)
