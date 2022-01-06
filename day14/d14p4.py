@@ -6,9 +6,9 @@ def centered_average(arr):
         max_num = max(arr)
 
         min_index = arr.index(min_num)
-        max_index = arr.index(max_num)
-
         arr[min_index] = 0
+
+        max_index = arr.index(max_num)
         arr[max_index] = 0
 
         arr_sum = sum(arr)
@@ -19,11 +19,11 @@ def centered_average(arr):
 
     return 0
 
-result = centered_average([5, 2, 3, 4, 100])
+result = centered_average([1, 2, 3, 4, 100])
 print(result)
 result = centered_average([1, 1, 5, 5, 10, 8, 7])
 print(result)
 result = centered_average([-10, -4, -2, -4, -2, 0])
 print(result)
-result = centered_average([-10, -4, -2])
+result = centered_average([7, 7, 7])
 print(result)
