@@ -4,11 +4,10 @@ def string_match(str1, str2):
 
     for i in range(len(str1) - 1):
         substr1.append(str1[i:(i+2)])   
-    print(substr1)
-
+    
     for j in range(len(str2) - 1):
         substr2.append(str2[j:(j+2)])
-    print(substr2)
+
 
     main_lenght = min_lenght(substr1, substr2)
     
