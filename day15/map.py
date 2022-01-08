@@ -1,7 +1,3 @@
-# if __name__ == '__main__':
-#     tests = map(int, input().split()) # this is clear? YES
-#     print(f"tests = {tests}")         # This is clear? LAZY
-
 def sq(x):
     return x * x
 
