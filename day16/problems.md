@@ -49,14 +49,14 @@ string = "Practice Problems to Drill List Comprehension in Your Head."
 ## Problem 1
 Find all of the numbers from 1–1000 that are divisible by 8
 
-## Problem 1
+## Problem 2
 Find all of the numbers from 1–1000 that have a 6 in them
 
-## Problem 1
+## Problem 3
 Count the number of spaces in a string (use string above)
 
-## Problem 1
+## Problem 4
 Remove all of the vowels in a string (use string above)
 
-## Problem 1
+## Problem 5
 Find all of the words in a string that are less than 5 letters (use string above)
