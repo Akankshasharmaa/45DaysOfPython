@@ -15,6 +15,7 @@ if __name__ == '__main__':
             result = chr((((ord(item)+ n)-97)%26)+97)
             password.append(result)
 
+
         else:
             password.append(item)
     print("".join(password))
