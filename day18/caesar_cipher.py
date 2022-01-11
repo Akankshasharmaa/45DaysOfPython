@@ -3,17 +3,19 @@ import string
 if __name__ == '__main__':
     #user input
     text = input("Give a text. ")
-    
-    output = []
-    cipher_text = []
-    if len(text) >= 1:
-        for item in text:
-            cipher_text.append(ord(item)+ 4)
+    n = int(input("Move by "))
+    # check if upper case letters (65- 90)
+    password = []
+    for item in text:
+        if item.isupper():
+            result = chr((((ord(item)+ n)-65)%26)+65)
+            password.append(result)
 
-        for item in cipher_text:
-            output.append(chr(item))
-        print("".join(output))
+        elif item.islower():
+            result = chr((((ord(item)+ n)-97)%26)+97)
+            password.append(result)
 
-    else:
-        print("Give a text. ")
+        else:
+            password.append(item)
+    print("".join(password))
     
