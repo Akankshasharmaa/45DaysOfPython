@@ -9,7 +9,6 @@ from sets_categories_data import (VEGAN,
 
 def clean_ingredients(dish_name, dish_ingredients):
     """
-
     :param dish_name: str
     :param dish_ingredients: list
     :return: tuple of (dish_name, ingredient set)
@@ -17,13 +16,12 @@ def clean_ingredients(dish_name, dish_ingredients):
     This function should return a `tuple` with the name of the dish as the first item,
     followed by the de-duped `set` of ingredients as the second item.
     """
-
-    pass
-
+    ingredient_set = set(dish_ingredients)
+    mydish = (dish_name, ingredient_set)
+    return mydish
 
 def check_drinks(drink_name, drink_ingredients):
     """
-
     :param drink_name: str
     :param drink_ingredients: list
     :return: str drink name + ("Mocktail" or "Cocktail")
@@ -31,13 +29,13 @@ def check_drinks(drink_name, drink_ingredients):
     The function should return the name of the drink followed by "Mocktail" if the drink has
     no alcoholic ingredients, and drink name followed by "Cocktail" if the drink includes alcohol.
     """
-
-    pass
-
+    drink_set = set(drink_ingredients)
+    if ALCOHOLS.isdisjoint(drink_set):
+        return drink_name + " Mocktail"
+    return drink_name + " Cocktail"
 
 def categorize_dish(dish_name, dish_ingredients):
     """
-
     :param dish_name: str
     :param dish_ingredients: list
     :return: str "dish name: CATEGORY"
@@ -46,13 +44,24 @@ def categorize_dish(dish_name, dish_ingredients):
     All dishes will "fit" into one of the categories imported from `sets_categories_data.py`
     (VEGAN, VEGETARIAN, PALEO, KETO, or OMNIVORE).
     """
-
-    pass
-
+    dish_set = set(dish_ingredients)
+    category = " "
+    if dish_set.issubset(VEGAN):
+        category = "VEGAN"
+    elif dish_set.issubset(VEGETARIAN):
+        category = "VEGETARIAN"
+    elif dish_set.issubset(PALEO):
+        category = "PALEO"
+    elif dish_set.issubset(KETO):
+        category = "KETO"
+    elif dish_set.issubset(OMNIVORE):
+        category = "OMNIVORE"
+    else:
+        category = " "
+    return dish_name + ": " + category
 
 def tag_special_ingredients(dish):
     """
-
     :param dish: tuple of (str of dish name, list of dish ingredients)
     :return: tuple of (str of dish name, set of dish special ingredients)
 
@@ -60,25 +69,26 @@ def tag_special_ingredients(dish):
     For the purposes of this exercise, all allergens or special ingredients that need to be tracked are in the
     SPECIAL_INGREDIENTS constant imported from `sets_categories_data.py`.
     """
-
-    pass
-
+    ingredient_set = set(dish[1])
+    if ingredient_set.isdisjoint(SPECIAL_INGREDIENTS):
+        return dish[0]
+    ingredients = ingredient_set.intersection(SPECIAL_INGREDIENTS)
+    return (dish[0], ingredients)
 
 def compile_ingredients(dishes):
     """
-
     :param dishes: list of dish ingredient sets
     :return: set
 
     This function should return a `set` of all ingredients from all listed dishes.
     """
-
-    pass
-
+    new_set = set()
+    for myset in dishes:
+        new_set = new_set.union(myset)
+    return set(new_set)
 
 def separate_appetizers(dishes, appetizers):
     """
-
     :param dishes: list of dish names
     :param appetizers: list of appetizer names
     :return: list of dish names
@@ -86,15 +96,20 @@ def separate_appetizers(dishes, appetizers):
     The function should return the list of dish names with appetizer names removed.
     Either list could contain duplicates and may require de-duping.
     """
-
-    pass
-
+    dish_set = set(dishes)
+    appetizer_set = set(appetizers)
+    remaining_dish = dish_set - appetizer_set
+    return remaining_dish
 
 def singleton_ingredients(dishes, intersection):
     """
-
-    :param intersection: constant - one of (VEGAN_INTERSECTION,VEGETARIAN_INTERSECTION,PALEO_INTERSECTION,
-                                            KETO_INTERSECTION,OMNIVORE_INTERSECTION)
+    :param intersection: constant - one of (
+        VEGAN_INTERSECTION,
+        VEGETARIAN_INTERSECTION,
+        PALEO_INTERSECTION,
+        KETO_INTERSECTION,
+        OMNIVORE_INTERSECTION
+    )
     :param dishes:  list of ingredient sets
     :return: set of singleton ingredients
 
@@ -102,5 +117,11 @@ def singleton_ingredients(dishes, intersection):
     Each `<CATEGORY>_INTERSECTION` is an `intersection` of all dishes in the category.
     The function should return a `set` of ingredients that only appear in a single dish.
     """
-
-    pass
+    all_ingredients = set()
+    for dish in dishes:
+        all_ingredients = all_ingredients.union(dish)
+    common_ingredients = dishes[0]
+    for dish in dishes:
+        common_ingredients = common_ingredients.intersection(dish)
+    unique = all_ingredients - common_ingredients
+    return unique - intersection

@@ -197,16 +197,11 @@ False
 **Intersection**: `<set>.intersection(*<other iterables>)` and `<set> & <other set> & <other set 2> & ... <other set n>` return a new `set` with elements common to the original `set` and all `<others>`.
 
 ```python
->>> perennials = {'Annatto','Asafetida','Asparagus','Azalea','Winter Savory', 'Blackberries','Broccoli','Curry Leaf',
-                  'Fennel','French Sorrel','Fuchsia','Kaffir Lime','Kale','Lavender','Mint','Oranges',
-                  'Oregano','Ramps','Roses','Tarragon','Watercress','Wild Bergamot'}
+>>> perennials = {'Annatto','Asafetida','Asparagus','Azalea','Winter Savory', 'Blackberries','Broccoli','Curry Leaf', 'Fennel','French Sorrel','Fuchsia','Kaffir Lime','Kale','Lavender','Mint','Oranges','Oregano','Ramps','Roses','Tarragon','Watercress','Wild Bergamot'}
 
->>> annuals = {'Corn', 'Zucchini', 'Sweet Peas', 'Marjoram', 'Summer Squash', 'Okra',
-               'Shallots', 'Basil', 'Cilantro', 'Cumin', 'Sunflower', 'Chervil', 'Summer Savory'}
+>>> annuals = {'Corn', 'Zucchini', 'Sweet Peas', 'Marjoram', 'Summer Squash', 'Okra','Shallots', 'Basil', 'Cilantro', 'Cumin', 'Sunflower', 'Chervil', 'Summer Savory'}
 
->>> herbs = ['Annatto','Asafetida','Basil','Chervil','Cilantro','Curry Leaf','Fennel','Kaffir Lime',
-             'Lavender','Marjoram','Mint','Oregano','Summer Savory' 'Tarragon','Wild Bergamot',
-             'Wild Celery','Winter Savory']
+>>> herbs = ['Annatto','Asafetida','Basil','Chervil','Cilantro','Curry Leaf','Fennel','Kaffir Lime', 'Lavender','Marjoram','Mint','Oregano','Summer Savory' 'Tarragon','Wild Bergamot','Wild Celery','Winter Savory']
 
 
 # Methods will take any iterable as an argument.
