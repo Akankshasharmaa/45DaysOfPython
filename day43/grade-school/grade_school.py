@@ -1,54 +1,33 @@
+"""Grade School"""
 class School:
-    class_dict = {}
-    student_name = set()
+    """Class School"""
     def __init__(self):
-        pass
+        """Initialising"""
+        self.class_list = []
+        self.action = []
 
     def add_student(self, name, grade):
-        if name not in self.student_name:
-            grade_exists = grade in self.class_dict
-            if grade_exists:
-                self.class_dict[grade].append(name)
-                self.student_name.add(name)
-            else:
-                self.class_dict[grade] = [name]
-                self.student_name.add(name)
-        else:
-            pass
+        """
+        input: name, grade
+        appening in the list
+        """
+        pair = (grade, name)
+        for (_, class_name) in self.class_list:
+            if class_name == name:
+                self.action.append(False)
+                return
+        self.class_list.append(pair)
+        self.class_list.sort(key=lambda pair: (pair[0], pair[1]))
+        self.action.append(True)
 
     def roster(self):
-        students = []
-        for grade in sorted(self.class_dict.key()):
-            students += sorted(self.class_dict[grade])
-        return sorted(students)
+        """Return: name of all students"""
+        return [name for (_, name) in self.class_list]
 
     def grade(self, grade_number):
-        student_in_grade = []
-        if grade_number in self.class_dict:
-            student_in_grade.extend(self.class_dict[grade_number])
-        return sorted(student_in_grade)
+        """Return: name of all student in the given grade"""
+        return [name for (grade, name) in self.class_list if grade == grade_number]
 
     def added(self):
-        pass
-
-import operator
-class School(object):
-    def __init__(self):
-        self.Roster = dict()
-
-    def add_student(self, name, grade):
-        self.Roster[name] = grade
-
-    def roster(self):
-        sorted_roster = sorted(self.Roster.items(), key = lambda x : (x[1], x[0]))
-        ans = []
-        for (i, j) in sorted_roster:
-            ans.append(i)
-        return ans
-
-    def grade(self, grade_number):
-        ans = []
-        for key, val in self.Roster.items():
-            if(val == grade_number):ans.append(key)
-        ans.sort()
-        return ans
+        """Return: action recorded when adding or not adding a name in the list"""
+        return self.action
